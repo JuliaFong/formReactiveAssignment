@@ -1,9 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  projectForm: FormGroup;
+
+  ngOnInit(){
+    this.projectForm = new FormGroup({
+      'projectName': new FormControl(null, Validators.required)
+    });
+  }
 }
